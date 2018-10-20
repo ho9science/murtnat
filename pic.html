@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <script language="javascript" type="text/javascript" src="lib/p5.min.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/p5.dom.js"></script> 
+<style>body{    overflow:hidden;}</style>
+  </head>
+<body>
+
+<script>
+var img;
+
+function setup() {
+  createCanvas(2150, 760);
+  img = loadImage('img/zero_back2.png');
+}
+
+function draw(){
+  image(img, 0, 0);
+  var c = color('#0000ff'); // Define color 'c'
+  fill(c); 
+ quad(110, 260, 170, 250, 170, 480, 110, 480);
+ quad(170, 260, 230, 250, 230, 480, 170, 480);
+ quad(230, 260, 300, 250, 300, 480, 230, 480);
+ quad(300, 250, 360, 240, 360, 480, 300, 480);
+ quad(360, 250, 420, 240, 420, 480, 360, 480);
+ quad(420, 240, 480, 230, 480, 480, 420, 480);
+ quad(480, 240, 530, 230, 530, 480, 480, 480);
+
+// rect(650, 400, 600, 500, 750, 900, 300, 200);
+	rect(1020, 410, 260, 230, 950, 900, 800, 200);
+rect(1350, 325, 130, 165);
+
+quad(610, 50, 760, 140, 760, 140, 620, 330);
+
+quad(620, 50, 880, 0, 880, 0, 775, 130);
+quad(900, 0, 910, 270, 910, 270, 780, 140);
+quad(630, 340, 775, 150, 905, 280, 905, 320);
+}
+
+</script>
+</body>
+</html>

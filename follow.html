@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <script language="javascript" type="text/javascript" src="lib/p5.min.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/p5.dom.js"></script> 
+
+  </head>
+<body>
+
+<script>
+var x = 100,
+  y = 100,
+  angle1 = 0.0,
+  segLength = 50;
+var dataX = [50,0,50,0,50,0,50,0,50,0]
+var dataY = [5,10,15,20,25,30,35,40,45,50]
+
+function setup() {
+  createCanvas(710, 400);
+  strokeWeight(20.0);
+  stroke(255, 100);
+}
+
+function draw() {
+  background(0);
+  for (var i=0;i<dataX.length;i++){
+    dx = dataX[i] ;
+    dy = dataY[i] ;
+  angle1 = atan2(dy, dx);
+  // x = mouseX - (cos(angle1) * segLength);
+  // y = mouseY - (sin(angle1) * segLength);
+  segment(dx, dy, angle1);
+  ellipse(dx, dy, 20, 20); 
+  }
+  // segment(dx, dy, angle1);
+  // ellipse(dx, dy, 20, 20);  
+}
+
+function segment(x, y, a) {
+  push();
+  translate(x, y);
+  rotate(a);
+  line(0, 0, segLength, 0);
+  pop();
+}
+</script>
+</body>
+</html>
