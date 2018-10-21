@@ -33,5 +33,5 @@ python app.py
 
 * **Hyeonki Min** - *who visualized music* - 
 
-* **Jiyun Hyun** - *who composed music* - 
+* **Jeeyoon Hyun** - *who composed music* - 
 
