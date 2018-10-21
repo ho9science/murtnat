@@ -1,4 +1,4 @@
-# Tantrum
+# Murtnat
 
 Music visualization with p5js
 
