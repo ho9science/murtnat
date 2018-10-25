@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Tantrum</title>
+    <title>Murtnat</title>
+    <meta property="og:title" content="Murtnat"/>
+    <meta property="og:type" content="music"/>
+    <meta property="og:description" content="music visualization with p5.js in zer01ne day, 2018"/>
     <script type="text/javascript" src="{{ url_for('static', filename='p5.min.js') }}"></script> 
     <script type="text/javascript" src="{{ url_for('static', filename='p5.dom.js') }}"></script> 
     <script type="text/javascript" src="{{ url_for('static', filename='p5.sound.js') }}"></script> 
@@ -31,6 +34,8 @@ var beatThreshold = 0.11;
 var beatCutoff = 0;
 var beatDecayRate = 0.98; // how fast does beat cutoff decay?
 var framesSinceLastBeat = 0; // once this equals beatHoldFrames, beatCutoff starts to decay.
+
+var beatNum = 0;
 
 var kickWave = [7.403880859375,7.443080729166667,8.344680989583333,9.236481119791666,9.285481119791667,10.187080729166667,11.088680989583333,11.13278125,12.024580729166667,12.926180989583333,13.837580729166667,13.871880208333334,14.77348046875,15.670180989583333,15.70448046875,16.61098046875,17.507680989583335,17.55178125,18.45828125,19.35498046875,20.29578125,21.187580729166665,22.0891796875,22.1381796875,23.03978125,23.94628125,23.9756796875,24.872380208333333,25.798481770833334,25.822981770833334,26.724580729166668,29.43428125,29.48328125,30.375080729166665,30.409380208333335,31.306080729166666,32.21748177083333,32.26158072916667,33.1631796875,34.06478125,35.0006796875]
 
@@ -139,13 +144,25 @@ var granuMidi = [{'pitch': 60, 'start': 32.0, 'end': 32.125}, {'pitch': 60, 'sta
 		for (var i = 0; i < analogMidi.length; i++) {
 			if (analogMidi[i].start < ct && ct < analogMidi[i].end) {
 				fill(color(random(0, 255), random(0, 255), random(0, 255)));
-				quad(610, 50, 760, 140, 760, 140, 620, 330);
-				fill(color(random(0, 255), random(0, 255), random(0, 255)));
-				quad(620, 50, 880, 0, 880, 0, 775, 130);
-				fill(color(random(0, 255), random(0, 255), random(0, 255)));
-				quad(900, 0, 910, 270, 910, 270, 780, 140);
-				fill(color(random(0, 255), random(0, 255), random(0, 255)));
-				quad(630, 340, 775, 150, 905, 280, 905, 320);
+				switch(beatNum){
+					case 0:
+						beatNum = 1
+						quad(610, 50, 760, 140, 760, 140, 620, 330);
+						break;
+					case 1:
+						beatNum = 2
+						quad(620, 50, 880, 0, 880, 0, 775, 130);
+						break;
+					case 2:
+						beatNum = 3
+						quad(900, 0, 910, 270, 910, 270, 780, 140);
+						break;
+					case 3:
+						beatNum = 0
+						quad(630, 340, 775, 150, 905, 280, 905, 320);
+						break;
+				}
+				
 			}
 		}
 	}
